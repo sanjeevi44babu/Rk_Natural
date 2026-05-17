@@ -1,0 +1,335 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* NatureCure HMS - Healthcare Management System Design System */
+
+@layer base {
+ :root {
+  /* 🌿 Primary Tree Green (Forest / Nature) */
+  --primary: 142 70% 35%;
+  --primary-foreground: 0 0% 100%;
+  --primary-light: 142 50% 88%;
+  --primary-dark: 142 80% 25%;
+
+  /* 💙 Secondary Blue (Trust / Medical Tech) */
+  --secondary: 217 88% 58%;
+  --secondary-foreground: 0 0% 100%;
+  --secondary-light: 217 88% 90%;
+
+  /* 🏥 Base Backgrounds */
+  --background: 140 20% 99%;
+  --foreground: 222 45% 12%;
+
+  /* 🧾 Cards – subtle plant tint */
+  --card: 142 40% 98%;
+  --card-foreground: 222 45% 12%;
+  --card-border: 142 30% 86%;
+
+  /* 🪟 Popover */
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 45% 12%;
+
+  /* 🌫 Muted */
+  --muted: 142 18% 95%;
+  --muted-foreground: 215 16% 45%;
+
+  /* 🍃 Accent */
+  --accent: 142 45% 93%;
+  --accent-foreground: 142 70% 28%;
+
+  /* ❌ Destructive */
+  --destructive: 0 80% 58%;
+  --destructive-foreground: 0 0% 100%;
+
+  /* ✅ Success */
+  --success: 142 72% 44%;
+  --success-foreground: 0 0% 100%;
+
+  /* ⚠️ Warning */
+  --warning: 38 92% 50%;
+  --warning-foreground: 0 0% 100%;
+
+  /* 🧩 Borders & Inputs */
+  --border: 142 28% 82%;
+  --input: 142 28% 90%;
+  --ring: 142 72% 52%;
+
+  --radius: 0.75rem;
+
+  /* 📊 Sidebar */
+  --sidebar-background: 142 40% 97%;
+  --sidebar-foreground: 222 45% 12%;
+  --sidebar-primary: 142 72% 52%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 142 45% 93%;
+  --sidebar-accent-foreground: 142 70% 28%;
+  --sidebar-border: 142 28% 84%;
+  --sidebar-ring: 142 72% 52%;
+
+  /* 🌈 Gradients */
+  --gradient-primary: linear-gradient(
+    135deg,
+    hsl(142 72% 52%) 0%,
+    hsl(154 68% 46%) 100%
+  );
+
+  --gradient-hero: linear-gradient(
+    180deg,
+    hsl(142 72% 52%) 0%,
+    hsl(142 72% 42%) 100%
+  );
+
+  --gradient-card: linear-gradient(
+    135deg,
+    hsl(142 40% 98%) 0%,
+    hsl(142 35% 95%) 100%
+  );
+
+  /* 🌫 Shadows (soft & medical) */
+  --shadow-sm: 0 1px 2px hsl(142 20% 40% / 0.06);
+  --shadow-md: 0 6px 12px -2px hsl(142 25% 40% / 0.12);
+  --shadow-lg: 0 14px 24px -6px hsl(142 30% 40% / 0.16);
+  --shadow-card: 0 8px 30px -6px hsl(142 40% 40% / 0.18);
+}
+
+/* 🌙 DARK MODE — calm, natural, non-neon */
+.dark {
+  --primary: 142 65% 45%;
+  --primary-foreground: 0 0% 100%;
+  --primary-light: 142 35% 20%;
+  --primary-dark: 142 70% 55%;
+
+  --secondary: 217 88% 60%;
+  --secondary-foreground: 0 0% 100%;
+
+  --background: 222 45% 8%;
+  --foreground: 0 0% 100%;
+
+  --card: 222 40% 12%;
+  --card-foreground: 0 0% 100%;
+  --card-border: 222 30% 24%;
+
+  --popover: 222 40% 12%;
+  --popover-foreground: 0 0% 100%;
+
+  --muted: 217 30% 16%;
+  --muted-foreground: 210 20% 88%;
+
+  --accent: 142 30% 16%;
+  --accent-foreground: 142 65% 85%;
+
+  --destructive: 0 62% 32%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 217 30% 24%;
+  --input: 217 30% 20%;
+  --ring: 142 70% 48%;
+
+  --sidebar-background: 222 40% 10%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-primary: 142 70% 48%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 142 30% 16%;
+  --sidebar-accent-foreground: 142 65% 85%;
+  --sidebar-border: 217 30% 24%;
+  --sidebar-ring: 142 70% 48%;
+}
+}
+
+@layer components {
+  /* Primary button with gradient */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 
+           rounded-xl px-6 py-3 font-medium transition-all duration-200
+           shadow-md hover:shadow-lg active:scale-[0.98];
+  }
+  
+  /* Secondary/outline button */
+  .btn-secondary {
+    @apply border-2 border-primary text-primary bg-transparent
+           hover:bg-primary hover:text-primary-foreground
+           rounded-xl px-6 py-3 font-medium transition-all duration-200;
+  }
+  
+  /* Card with green border accent */
+  .card-medical {
+    @apply bg-card border-2 border-card-border rounded-2xl p-4
+           shadow-[var(--shadow-card)] transition-all duration-200
+           hover:shadow-lg hover:border-primary/50 text-foreground;
+  }
+  
+  /* Stats card */
+  .card-stat {
+    @apply bg-card border border-card-border rounded-xl p-4
+           flex flex-col items-center justify-center gap-1
+           min-w-[80px] transition-all duration-200 hover:bg-accent;
+  }
+  
+  /* Navigation item */
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl
+           text-foreground/70 hover:text-foreground hover:bg-accent
+           transition-all duration-200 cursor-pointer;
+  }
+  
+  .nav-item-active {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl
+           bg-primary text-primary-foreground font-medium
+           shadow-md cursor-pointer;
+  }
+  
+  /* User/Patient card */
+  .user-card {
+    @apply bg-card border border-card-border rounded-xl p-4
+           flex items-center gap-4 transition-all duration-200
+           hover:border-primary/50 hover:shadow-md cursor-pointer;
+  }
+
+  .user-card-grid {
+    @apply bg-card border border-card-border rounded-2xl p-4
+           flex flex-row md:flex-col items-center text-left md:text-center gap-4 transition-all duration-200
+           hover:border-primary/50 hover:shadow-card cursor-pointer
+           relative overflow-hidden h-full w-full;
+  }
+  
+  /* Utility to hide scrollbars but keep functionality */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Avatar with status indicator */
+  .avatar-wrapper {
+    @apply relative w-12 h-12 rounded-full bg-muted flex items-center justify-center
+           border-2 border-card-border overflow-hidden;
+  }
+  
+  /* Status badges */
+  .badge-success {
+    @apply bg-success/10 text-success border border-success/20
+           px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .badge-warning {
+    @apply bg-warning/10 text-warning border border-warning/20
+           px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .badge-primary {
+    @apply bg-primary/10 text-primary border border-primary/20
+           px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .badge-secondary {
+    @apply bg-secondary/10 text-secondary border border-secondary/20
+           px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  /* Input styling */
+  .input-medical {
+    @apply w-full px-4 py-2 rounded-xl border-2 border-input
+           bg-background focus:border-primary focus:ring-2 focus:ring-primary/20
+           outline-none transition-all duration-200 placeholder:text-muted-foreground
+           text-foreground text-sm;
+  }
+  
+  /* Calendar day */
+  .calendar-day {
+    @apply w-10 h-10 rounded-full flex items-center justify-center
+           text-sm font-medium cursor-pointer transition-all duration-200
+           hover:bg-accent;
+  }
+  
+  .calendar-day-active {
+    @apply w-10 h-10 rounded-full flex items-center justify-center
+           text-sm font-medium cursor-pointer bg-primary text-primary-foreground
+           shadow-md;
+  }
+  
+  .calendar-day-today {
+    @apply w-10 h-10 rounded-full flex items-center justify-center
+           text-sm font-medium cursor-pointer border-2 border-primary text-primary;
+  }
+  
+  /* Role card */
+  .role-card {
+    @apply flex items-center gap-3 p-3 rounded-xl border-2 border-card-border
+           bg-card hover:border-primary/50 hover:bg-accent cursor-pointer
+           transition-all duration-200 text-foreground;
+  }
+  
+  /* Page container */
+  .page-container {
+    @apply min-h-screen bg-background;
+  }
+  
+  /* Mobile header */
+  .mobile-header {
+    @apply flex items-center justify-between px-4 py-3 bg-background
+           border-b border-border sticky top-0 z-50;
+  }
+  
+  /* Dashboard header with premium glass/gradient look */
+  .dashboard-header {
+    @apply bg-gradient-to-br from-primary to-primary-dark text-primary-foreground 
+           px-4 py-1.5 rounded-2xl shadow-xl border border-white/10
+           relative overflow-hidden mb-1;
+  }
+  
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-2xl border border-white/20 shadow-2xl;
+  }
+  
+  /* Floating action button */
+  .fab {
+    @apply fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary
+           text-primary-foreground shadow-lg flex items-center justify-center
+           hover:bg-primary/90 active:scale-95 transition-all duration-200 z-40;
+  }
+  
+  /* Schedule time slot */
+  .time-slot {
+    @apply px-4 py-2 rounded-xl border border-card-border bg-card
+           text-sm font-medium cursor-pointer transition-all duration-200
+           hover:border-primary hover:bg-accent;
+  }
+  
+  .time-slot-active {
+    @apply px-4 py-2 rounded-xl bg-primary text-primary-foreground
+           text-sm font-medium cursor-pointer shadow-md;
+  }
+}
+
+@layer utilities {
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+  
+  /* Glassmorphism effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-md border border-white/20;
+  }
+  
+  /* Hide scrollbar */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Safe area for mobile */
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
